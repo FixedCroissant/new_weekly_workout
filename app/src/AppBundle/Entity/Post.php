@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * BlogPost
  *
  * @ORM\Table(name="blog_post")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  */
-class BlogPost
+class Post
 {
     /**
      * @var int

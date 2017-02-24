@@ -25,4 +25,7 @@ app/license
 
 /web/bundles/
 
+#ignore Initial Sonata bundle files
+/app/src/Application
+
 

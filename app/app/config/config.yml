@@ -15,15 +15,37 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
-        # ...
+
 sonata_admin:
      security:
-         handler: sonata.admin.security.handler.role
+         handler: sonata.admin.security.handler.acl
+     # acl security information
+         information:
+            GUEST: [VIEW,LIST]
+            ADMIN: [MASTER]
+         admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+         object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
 
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: Application\Sonata\UserBundle\Entity\User
+
+
+    group:
+      group_class:    Application\Sonata\UserBundle\Entity\Group
+      group_manager:  sonata.user.orm.group_manager
+
+    service:
+      user_manager:   sonata.user.orm.user_manager
+
+knp_menu:
+      twig:
+          template: KnpMenuBundle::menu.html.twig
+      # if true, enables the helper for PHP templates
+      templating: false
+      # the renderer to use, list is also avilable by default
+      default_renderer: twig
 
 framework:
     #esi:             ~
@@ -62,6 +84,9 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+              json: Sonata\Doctrine\Types\JsonType
+
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"

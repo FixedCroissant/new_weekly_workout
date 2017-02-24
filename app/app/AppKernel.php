@@ -28,6 +28,12 @@ class AppKernel extends Kernel
 
             //Add FOSUserBunder
             new FOS\UserBundle\FOSUserBundle(),
+            // USE THE SONATA PROJECT USER BUNDLE TO INTEGRATE FOS/USER BUNDLE.
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            //ALLOW THE USE OF EXTENDING SYMFONY2 BUNDLES THROUGH SONATA BUNDLE.
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            //NEW SONATA EXTENDED BUNDLE
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
         );
 
