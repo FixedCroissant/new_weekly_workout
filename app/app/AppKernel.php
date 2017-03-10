@@ -16,6 +16,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            //OverRide - FOS UserBundle
+            new UserBundle\UserBundle(),
             //Sonata Admin Bundle.
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -34,6 +36,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             //NEW SONATA EXTENDED BUNDLE
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
 
         );
 

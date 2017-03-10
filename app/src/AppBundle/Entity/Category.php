@@ -29,15 +29,15 @@ class Category
      */
     private $name;
 
-    /*
-     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
      */
-    private $blogPosts;
+    private $Post;
 
 
     public function  __construct()
     {
-        $this->blogPosts = new ArrayCollection();
+        $this->Post = new ArrayCollection();
     }
 
     /**
@@ -73,8 +73,8 @@ class Category
         return $this->name;
     }
 
-    public function getBlogPosts()
+    public function getPosts()
     {
-        return $this->blogPosts;
+        return $this->Post;
     }
 }
