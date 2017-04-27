@@ -21,9 +21,9 @@ app/app/bower_components/
 composer.lock
 app/license
 
-/app/web/
+#/app/web/
 
-/web/bundles/
+app/web/bundles/
 
 #ignore Initial Sonata bundle files
 /app/src/Application

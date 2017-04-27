@@ -2,8 +2,57 @@
 
 {% block addworkout %}
     <div class="row">
-        <div class="col-md-12">
-            Here are your workouts:
+        <divf class="col-md-12">
+            <h4>Current Workouts:</h4>
+            <br/>
+            <br/>
+            {# you can read and display just one flash message type... #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <div class="col-md-offset-2 col-md-6">
+                <table class="table table-responsive">
+                    <thead>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        workout type
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        workout length
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                    </thead>
+                {% for workouts in listOfWorkouts %}
+                    <tr>
+                        <td>
+                            {{ workouts.id }}
+                        </td>
+                        <td>
+                            {{ workouts.workoutType }}
+                        </td>
+                        <td>
+                            {{ workouts.stuLastName }} {{ workouts.stuFirstName }}
+                        </td>
+                        <td>
+                            {{ workouts.workoutLength }}
+                        </td>
+                        <td>
+                            <a href="{{ path('workout_delete',{'specificID': workouts.id}) }}">delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
         </div>
+    <a href="{{ path('homepage') }}">Go back to main page.</a>
     </div>
 {% endblock %}

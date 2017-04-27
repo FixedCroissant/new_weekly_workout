@@ -6,6 +6,13 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
+    {% block adminImpersonate %}
+        {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+            <div id="impersonate" style="border:1px solid black;">
+                    <a href="{{ path('homepage', {'_switch_user': '_exit'}) }}">Exit impersonation</a>
+            </div>
+        {% endif %}
+    {% endblock %}
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
