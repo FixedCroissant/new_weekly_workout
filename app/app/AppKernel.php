@@ -36,6 +36,8 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             //NEW SONATA EXTENDED BUNDLE
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            //ENABLE ASSETIC-BUNDLE
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
 
         );

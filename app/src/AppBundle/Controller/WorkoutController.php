@@ -3,7 +3,7 @@
 
 namespace AppBundle\Controller;
 
-//Get Post Entity.
+//Get Workout Entity.
 use AppBundle\Entity\Workout;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

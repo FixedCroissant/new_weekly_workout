@@ -24,8 +24,11 @@ app/license
 #/app/web/
 
 app/web/bundles/
+#ignore icons
+
 
 #ignore Initial Sonata bundle files
 /app/src/Application
 
 
+/app/web/images/

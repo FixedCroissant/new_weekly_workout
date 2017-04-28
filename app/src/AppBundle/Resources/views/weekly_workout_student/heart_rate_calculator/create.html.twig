@@ -1,0 +1,25 @@
+{% extends 'weekly_workout/layout.html.twig' %}
+
+{% block addworkout %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <h4>Please provide your new heart rate:</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {# you can read and display just one flash message type... #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <div class="col-md-offset-2 col-md-6">
+                {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
