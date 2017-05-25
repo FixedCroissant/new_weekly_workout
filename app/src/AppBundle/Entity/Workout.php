@@ -392,4 +392,73 @@ class Workout
     {
         return $this->workoutLength;
     }
+
+    /**
+     * Set stuWorkoutDate
+     *
+     * @param \DateTime $stuWorkoutDate
+     * @return Workout
+     */
+    public function setStuWorkoutDate($stuWorkoutDate)
+    {
+        $this->stuWorkoutDate = $stuWorkoutDate;
+
+        return $this;
+    }
+
+    /**
+     * Get stuWorkoutDate
+     *
+     * @return \DateTime 
+     */
+    public function getStuWorkoutDate()
+    {
+        return $this->stuWorkoutDate;
+    }
+
+    /**
+     * Set pushups
+     *
+     * @param integer $pushups
+     * @return Workout
+     */
+    public function setPushups($pushups)
+    {
+        $this->pushups = $pushups;
+
+        return $this;
+    }
+
+    /**
+     * Get pushups
+     *
+     * @return integer 
+     */
+    public function getPushups()
+    {
+        return $this->pushups;
+    }
+
+    /**
+     * Set crunches
+     *
+     * @param integer $crunches
+     * @return Workout
+     */
+    public function setCrunches($crunches)
+    {
+        $this->crunches = $crunches;
+
+        return $this;
+    }
+
+    /**
+     * Get crunches
+     *
+     * @return integer 
+     */
+    public function getCrunches()
+    {
+        return $this->crunches;
+    }
 }

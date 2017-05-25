@@ -2,24 +2,47 @@
 
 {% block addworkout %}
     <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <h4>Please add a new workout to your account:</h4>
+        <div class="col-md-6 col-md-offset-3">
+          <h4>Enter your workout data using the form below. </h4>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <style>
+            .red-line-item{
+                color:red;
+            }
+        </style>
+
+        <!--Full Page Width-->
+        <div class="col-md-10">
             {# you can read and display just one flash message type... #}
             {% for flash_message in app.session.flashBag.get('notice') %}
                 <div class="flash-notice">
                     {{ flash_message }}
                 </div>
             {% endfor %}
-            <div class="col-md-offset-2 col-md-6">
+
+            <div class="col-md-4 col-md-offset-3">
+                <h4>Instructions</h4>
+
+                <ul>
+                    <li><span class="red-line-item">Month/Day Year</span> - The date of the workout. One one workout can be recorded per day.</li>
+                    <li><span class="red-line-item">Pre-Exercise HR</span> - The pre-exercise heartrate count for one minute.</li>
+                    <li><span class="red-line-item">Peak Exercise HR</span> - The maximum heartrate count maintained during exercise taken for 10 seconds.</li>
+                    <li><span class="red-line-item">Post-Exercise HR</span> - The heartrate count taken five minutes after exercise taken for one minute.</li>
+                    <li><span class="red-line-item">Pushups/Pushup Type</span> - The number of standard or modified pushups completed uring the exercise session.</li>
+                    <li><span class="red-line-item">Crunches</span> - The number of crunches performed during the exercise session.</li>
+                    <li><span class="red-line-item">Workout Type</span> - The aerobic activity performed during exercise.</li>
+                    <li><span class="red-line-item">Length of Workout</span> - The number of minutes for which the exercise was performed.</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
                     {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     {{ form_start(form) }}
                     {{ form_widget(form) }}
                     {{ form_end(form) }}
             </div>
+
         </div>
     </div>
 {% endblock %}

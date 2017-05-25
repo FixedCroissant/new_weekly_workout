@@ -77,4 +77,37 @@ class Category
     {
         return $this->Post;
     }
+
+    /**
+     * Add Post
+     *
+     * @param \AppBundle\Entity\Post $post
+     * @return Category
+     */
+    public function addPost(\AppBundle\Entity\Post $post)
+    {
+        $this->Post[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove Post
+     *
+     * @param \AppBundle\Entity\Post $post
+     */
+    public function removePost(\AppBundle\Entity\Post $post)
+    {
+        $this->Post->removeElement($post);
+    }
+
+    /**
+     * Get Post
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPost()
+    {
+        return $this->Post;
+    }
 }

@@ -14,10 +14,22 @@
                     {{ flash_message }}
                 </div>
             {% endfor %}
-            <div class="col-md-offset-2 col-md-6">
+
+            <div class="col-md-3 col-md-offset-2">
+              <h4>Instructions</h4>
+                <ul>
+                  <li>Enter your current age.</li>
+                  <li>Enter your resting heartrate.</li>
+                  <li>Select your Gender.</li>
+                  <li>Click the calculate button.</li>
+                  <br/>
+                    <a href="{{ path('heartrate_index') }}">See your list of HeartRates</a>&nbsp;
+
+              </ul>
+            </div>
+            <div class="col-md-4">
                 {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_start(form) }}
-                {{ form_widget(form) }}
                 {{ form_end(form) }}
             </div>
         </div>

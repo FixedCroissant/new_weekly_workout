@@ -58,18 +58,18 @@ class WorkoutController extends Controller
 
             //Add category.
             //->add('category','entity',array('class'=>'AppBundle\Entity\Category','property'=>'name','attr'=>['class'=>'form-control']))
-            ->add('workout_date', DateType::class,array('required'=>false))
+            ->add('workout_date', DateType::class,array('label'=>'Date of Workout','required'=>true))
             ->add('stu_first_name',TextType::class,array('attr'=>['class'=>'form-control']))
             ->add('stu_last_name',TextType::class,array('attr'=>['class'=>'form-control']))
             ->add('stu_unity_id',TextType::class,array('attr'=>['class'=>'form-control']))
-            ->add('pre_exercise_hr',TextType::class,array('attr'=>['class'=>'form-control']))
-            ->add('peak_exercise_hr',TextType::class,array('attr'=>['class'=>'form-control']))
-            ->add('post_exercise_hr',TextType::class,array('attr'=>['class'=>'form-control']))
-            ->add('pushup_number',ChoiceType::class,array('choices'=>range(0,200),'attr'=>['class'=>'form-control']))
-            ->add('pushup_type',ChoiceType::class,array('choices'=>array(''=>'Select Type','std'=>'standard','mod'=>'modified'),'attr'=>['class'=>'form-control']))
-            ->add('crunches_number',ChoiceType::class,array('choices'=>range(0,200),'attr'=>['class'=>'form-control']))
-            ->add('workout_type',ChoiceType::class,array('choices'=>array(''=>'Select Type','aerobics'=>'aerobics','walking'=>'walking','running'=>'running','cycling'=>'cycling'),'attr'=>['class'=>'form-control']))
-            ->add('workout_length',TextType::class,array('attr'=>['class'=>'form-control']))
+            ->add('pre_exercise_hr',TextType::class,array('attr'=>['label'=>'Pre Exercise HR','class'=>'form-control']))
+            ->add('peak_exercise_hr',TextType::class,array('attr'=>['label'=>'Peak Exercise HR','class'=>'form-control']))
+            ->add('post_exercise_hr',TextType::class,array('attr'=>['label'=>'Post Exercise HR','class'=>'form-control']))
+            ->add('pushup_number',ChoiceType::class,array('choices'=>range(0,200),'attr'=>['label'=>'Pushups','class'=>'form-control']))
+            ->add('pushup_type',ChoiceType::class,array('choices'=>array(''=>'Select Type','std'=>'standard','mod'=>'modified'),'attr'=>['label'=>'Pushup Type','class'=>'form-control']))
+            ->add('crunches_number',ChoiceType::class,array('choices'=>range(0,200),'attr'=>['label'=>'Crunches','class'=>'form-control']))
+            ->add('workout_type',ChoiceType::class,array('label'=>'Workout Type','choices'=>array(''=>'Select Type','aerobics'=>'aerobics','walking'=>'walking','running'=>'running','cycling'=>'cycling'),'attr'=>['class'=>'form-control']))
+            ->add('workout_length',TextType::class,array('attr'=>['label'=>'Length of Workout','class'=>'form-control']))
             ->add('save',SubmitType::class,['label'=>'Add Your Workout','attr'=>['class'=>'btn-sm btn-primary']])
             ->getForm();
 

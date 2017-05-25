@@ -1,0 +1,63 @@
+{% extends 'weekly_workout/layout.html.twig' %}
+
+{% block addworkout %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <h4>Please provide your new heart rate:</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {# you can read and display just one flash message type... #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+
+            <div class="col-md-12">
+                <p>
+                    Here are your current heart rates in the system for the current semester:
+                </p>
+                <table class="table table-responsive">
+                <thead>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Logged In Unity ID
+                    </th>
+                    <th>
+                        Student Age
+                    </th>
+                    <th>
+                        Resting Heart Rate
+                    </th>
+                </thead>
+                <tbody>
+
+                {% for studentHeartRates in listOfHeartRateCalculations %}
+                    <tr>
+                        <td>
+                            {{ studentHeartRates.id }}
+                        </td>
+                        <td>
+                            {{ studentHeartRates.stuAge }}
+                        </td>
+                        <td>
+                            {{ studentHeartRates.stuRestHeartRate }}
+                        </td>
+                        <td>
+                            {{ studentHeartRates.unityID }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+
+                <br/>
+                <a href="{{ path('homepage') }}">Go to homepage</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

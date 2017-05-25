@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * HeartRate
@@ -21,31 +22,32 @@ class HeartRate
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="stu_first_name", type="string", length=200)
-     */
-    private $stuFirstName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="stu_last_name", type="string", length=255)
-     */
-    private $stuLastName;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="emplid", type="integer")
+     * @ORM\Column(name="user_id",type="integer",nullable=false)
+     *
      */
-    private $emplid;
+     private $userID;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unityID",type="string",nullable=true)
+     *
+     */
+    private $unityID;
+
+
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="stu_gender", type="string", length=15)
+     * @Assert\NotBlank()
      */
     private $stuGender;
 
@@ -53,6 +55,7 @@ class HeartRate
      * @var int
      *
      * @ORM\Column(name="stu_age", type="integer")
+     * @Assert\NotBlank()
      */
     private $stuAge;
 
@@ -60,6 +63,8 @@ class HeartRate
      * @var int
      *
      * @ORM\Column(name="stu_rest_heart_rate", type="integer", nullable=true)
+     * @Assert\NotBlank()
+     *
      */
     private $stuRestHeartRate;
 
@@ -75,73 +80,30 @@ class HeartRate
     }
 
     /**
-     * Set stuFirstName
+     * Set userID
      *
-     * @param string $stuFirstName
+     * @param integer $newUserID
      * @return HeartRate
      */
-    public function setStuFirstName($stuFirstName)
+    public function setUserID($newUserID)
     {
-        $this->stuFirstName = $stuFirstName;
+        $this->userID = $newUserID;
 
         return $this;
     }
 
     /**
-     * Get stuFirstName
+     * Get userID
      *
-     * @return string 
+     * @return integer
      */
-    public function getStuFirstName()
+    public function getUserID()
     {
-        return $this->stuFirstName;
+        return $this->userID;
     }
 
-    /**
-     * Set stuLastName
-     *
-     * @param string $stuLastName
-     * @return HeartRate
-     */
-    public function setStuLastName($stuLastName)
-    {
-        $this->stuLastName = $stuLastName;
 
-        return $this;
-    }
 
-    /**
-     * Get stuLastName
-     *
-     * @return string 
-     */
-    public function getStuLastName()
-    {
-        return $this->stuLastName;
-    }
-
-    /**
-     * Set emplid
-     *
-     * @param integer $emplid
-     * @return HeartRate
-     */
-    public function setEmplid($emplid)
-    {
-        $this->emplid = $emplid;
-
-        return $this;
-    }
-
-    /**
-     * Get emplid
-     *
-     * @return integer 
-     */
-    public function getEmplid()
-    {
-        return $this->emplid;
-    }
 
     /**
      * Set stuGender
@@ -210,5 +172,28 @@ class HeartRate
     public function getStuRestHeartRate()
     {
         return $this->stuRestHeartRate;
+    }
+
+    /**
+     * Set unityID
+     *
+     * @param string $unityID
+     * @return HeartRate
+     */
+    public function setUnityID($unityID)
+    {
+        $this->unityID = $unityID;
+
+        return $this;
+    }
+
+    /**
+     * Get unityID
+     *
+     * @return string 
+     */
+    public function getUnityID()
+    {
+        return $this->unityID;
     }
 }

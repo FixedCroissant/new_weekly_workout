@@ -16,7 +16,12 @@ class HeartRateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('stuFirstName',TextType::class , ['attr'=>['class'=>'form-control']])->add('stuLastName',TextType::class , ['attr'=>['class'=>'form-control']])->add('emplid',TextType::class,['attr'=>['class'=>'form-control','maxlength'=>'9']])->add('stuGender',ChoiceType::class,array('choices'=>array('male'=>'Male','female'=>'Female'),'multiple'=>false,'expanded'=>true))->add('stuAge')->add('stuRestHeartRate')->add('save',SubmitType::class);
+        $builder
+            ->add('stuAge',TextType::class,array('label'=>'Age:','attr'=>['class'=>'form-control','maxlength'=>'2','label'=>'Age:','required'=>false]))
+            ->add('stuRestHeartRate',TextType::class,array('label'=>'Resting Heart Rate:','attr'=>['class'=>'form-control','maxlength'=>'3']))
+            ->add('stuGender',ChoiceType::class,array('label'=>'Gender:','choices'=>array('male'=>'Male','female'=>'Female'),'multiple'=>false,'expanded'=>false))
+
+            ->add('save',SubmitType::class,array('attr'=>['class'=>'btn']));
     }
     
     /**
