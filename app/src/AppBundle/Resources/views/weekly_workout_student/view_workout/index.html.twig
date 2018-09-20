@@ -28,6 +28,9 @@
                         workout length
                     </th>
                     <th>
+                        Edit
+                    </th>
+                    <th>
                         Delete
                     </th>
                     </thead>
@@ -44,6 +47,9 @@
                         </td>
                         <td>
                             {{ workouts.workoutLength }}
+                        </td>
+                        <td>
+                           <a href="{{ path('workout_edit',{'specificID': workouts.id}) }}">Edit Workout</a>
                         </td>
                         <td>
                             <a href="{{ path('workout_delete',{'specificID': workouts.id}) }}">delete</a>

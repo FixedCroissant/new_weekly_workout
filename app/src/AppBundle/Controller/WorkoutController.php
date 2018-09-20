@@ -102,6 +102,19 @@ class WorkoutController extends Controller
     }
 
     /**
+     * Edit a specific workout.
+     * @Route("/workout/{specificID}/edit",defaults={"specificID"=0},name="workout_edit")
+     * @Method("Get")
+     * @return string
+     */
+     public function editWorkout($specificID){
+
+         return var_dump('Wanna edit a workout?');
+     }
+
+
+
+    /**
      * Delete a specific workout.
      * @Route("/workout/delete/{specificID}",defaults={"specificID"=0},name="workout_delete")
      * @Method("Get")
